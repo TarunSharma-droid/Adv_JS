@@ -1,0 +1,74 @@
+<!-- As we are doing the DOM manipulation in the console 
+ same we can do in the HTML documnet itselves by writing 
+ script tag in the body .-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relations</title>
+    <style>
+        .day{
+            padding : 10px;
+            background-color:black;
+            border-style: solid;
+            border-radius : 10px;
+            border-color:red; 
+            
+        }
+    </style>
+</head>
+<body  style = "background-color: black; color: red">
+    <div class="parent">
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+        <div class="day">Friday</div>
+        <div class="day">Saturday</div>
+        <div class="day">Sunday</div>\
+        <!--comment-->
+    </div>
+
+    <script>
+        const main = document.querySelector('.parent')  // gives the parent div
+        console.log(main)
+        console.log(main.children)                      //children is function : gives the all children of the parent div in form of HTMLCollection. 
+        console.log(main.children[1])
+        console.log(main.children[1].innerText)
+        
+
+        // console.log(main.querySelectorAll('div'))    // Alternate : hum esa bhi kr skte the sare children pane ke liye.
+        // const a = main.querySelectorAll('div')
+        // console.log(a[1])
+
+        const arr = Array.from(main.children)          // generating the array from the HTMLCollection and storing in arr
+        arr.forEach ( (iteam) => console.log(iteam.innerHTML)) // now each element of array "arr" is refered by keyword iteam here and we are printing its innerHTML.
+
+        console.log(main.children[1].style.color ="white")
+
+
+        console.log(main.firstElementChild)
+        console.log(main.children[0]) // both means same thing
+
+        console.log(main.lastElementChild)
+       
+
+
+        const store = document.querySelector('.day') // gives the first elememt having class .day
+        console.log(store.parentElement) // gives the parent of child element.
+
+        const store2 = main.firstElementChild // can also use ( main.lastElementChild  ) or ( main.children[n])
+        console.log(store2.parentElement)
+
+        console.log(store.nextElementSibling)  //gives just next element to the first element.
+
+        
+        console.log('NODES :', main.childNodes) // giving 17 child nodes ( in DOM  writing in new line is also considered as a node so here 7 div nodes , 1 comment node and 9 new line nodes)
+        // and each new line node is represented as the text in the console.
+        
+    </script>
+</body>
+</html>

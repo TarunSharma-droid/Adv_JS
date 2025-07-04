@@ -1,0 +1,61 @@
+<!-- DOM = document object model : It is a interface representation of HTML document / file in the form of logical tree.
+
+Every element of the HTML file is represented by the node of this model tree (each node has its own object which holds the properties 
+of the respective element related to the node. )
+
+DOM provides a complete flow of the HTML document .
+
+By using this DOM we can make changes in the actual HTML document. 
+
+NOTE : As we use the object name to access its keys also as we need function name to access the fucntion. Here to access HTML document we have to 
+use the "document" keyword and then we can perform any manipulations in the HTML document in the console using the JavaScript .  --> 
+
+<!-- example -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM learning</title>
+</head>
+<body>
+    
+    <div class = "A">
+        <h1 > DOM Learning </h1>
+        <p>
+            Lorem ipsum dolor sit amet.
+        </p>
+    </div>
+</body>
+</html>
+
+<!--
+The DOM of the HTML file written above is : 
+
+1) HTML Document                                                            {document}  
+.                                                                               |
+2) HTML Document have html tag                                               { html }   
+.                                                                               |
+.                                                    --------------------------------------------------------
+.                                                    |                                                      |
+3) HTML tag have head nad body tag               { head }                                               { body } 
+.                                                    |                                                      |
+.                                                    |                                                      |
+.                                   ---------------------------------                                       |
+.                                   |                               |                                       |                         
+.                                   V                               V                                       V                         
+4)head have title & meta tag    { title }                        { meta }                                { div }        ( body tag have div tag )            
+.                                   |                               |                                       | |
+.                                   |                               |                                       | |
+.                                   V                               V                                       | L-------{ attribute : class}
+.                        {text node : text value}              { attributes }                               |
+.                                                                               ------------------------------------------------------
+.                                                                               |                                                    |
+.                                                                              { h1 }                                               { p }
+.                                                                               |                                                    |
+.                                                                               |                                                    |
+.                                                                      ---------------------                             -------------------------
+.                                                                      |                   |                             |                       |
+.                                                       {text node : text value}      { attribute : class }    {text node : text value}      { attribute : class }
+
+-->

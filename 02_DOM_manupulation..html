@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM learning</title>
+    <style> 
+        body {
+            background-color: black;
+            color : white
+        }
+    </style>
+</head>
+<body>
+    
+    <div class = "Apple">
+        <h1 id ="main_heading" class ="Ball" > DOM Learning <span style = "display : none "> dummy text </span>  
+        </h1>
+        <h1>Hello Tarun</h1>
+        <h1>Hello Rajat</h1>
+        <p>
+            Lorem ipsum dolor sit amet.
+        </p>
+        
+    </div>
+
+    <ul>
+        <li class = "newclass">hello</li>
+        <li class = "newclass">mad</li>
+        <li class = "newclass">man</li>
+        <li class = "newclass">Tarun</li>
+    </ul>
+</body>
+</html>
+
+
+<!--    Some Console Manipulations ===>
+---------------------------------------
+document.getElementsByClassName('Apple')                                     by this we can get  <div> 
+    
+document.getElementsByID('main_heading')                                     by this we will get <h1>  
+    
+document.getElementById('main_heading').innerHTML = "<h1>Tarun Sharma</h1>   by this we can change the content inside heading to Tarun Sharma.
+
+document.getElementById('main_heading').className                            by this we can the class name of element whose id is main_heading.
+or we could do => document.getElementById('main_heading').getAttribute('class')
+
+note : we cant to  document.getElementByClassName('Apple').getAttribute('id') because 
+Because document.getElementsByClassName('Ball') returns an HTMLCollection, not a single element.
+An HTMLCollection is like an array-like list of all elements that have the class Ball.
+You cannot directly call .getAttribute() on a collection —  but can only on individual elements.
+Correct way to do it:
+document.getElementsByClassName('Ball')[0].getAttribute('id'); or
+document.querySelector('.Ball').getAttribute('id');
+
+ 
+document.getElementById('main_heading').setAttribute('class' , 'test' )      by this we can change the class of heading from "main_heading" to "test" in inspect.
+
+const slogan = document.getElementById('main_heading')                       we can also store any operation in any varaible in the console for easy access.
+
+slogan.style.backgroundColor = 'pink'                                        change the background color of the heading
+
+
+we can also do :
+
+slogan.style.borderColor = 'white'
+slogan.style.borderStyle = 'solid'
+slogan.style.padding = '10px'
+slogan.style.borderRadius = '10px'
+slogan.textContent ( gives the complete text including the hidden content also)  
+slogan.innerHTML   ( gives the complelte text with the elements HTML elements present too)
+slogan.innerText   ( gives the only visible text)
+
+
+
+document.querySelector('h1')        gives first h1
+document.querySelectorAll('h1')      gives all h1
+
+document.querySelector('#main_heading')        gives h1 with this id
+document.querySelector('.Ball')                gives the element with this class
+
+
+document.querySelector('ul')     gives the unordered list
+
+const list = document.querySelector('ul')
+
+list.querySelector('li')         gives the first list iteam
+
+const iteam = list.querySelector('li')
+iteam.style.backgroundColor = 'red'        turn the background of the first iteam of the list to red.
+iteam.style.padding = '10px'               gives padding to the first element of the list
+iteam.inner = 'mai nhi manta'              will change the content written inside the first list iteam.
+
+
+
+NOTE :::::::
+
+when we do  ==> document.querySelector('ul')  ==> we get the ordered list
+
+                const list = document.querySelector('ul')
+                list.style.backgroundColor = 'red'          ==> the color of all the list iteams will get change simultaneously 
+
+                through this method we cannot access the specific list iteam.
+
+But when we do ==> document.querySelector('ul') ==>  
+
+                const list = document.querySelector('ul')
+                list.querySelectorAll('li')                 ==> gives all the list iteams in the form of NodeList
+                const iteams = list.querySelectorAll('li')
+                iteams.style.backgroundColor = 'red'          
+                ==> the color will not change and we will get error too all because we cant use this syntax for node list
+
+                we have to do like ==> iteams[1].style.backgroundColor = 'red'  for the selective iteams we have to target once at a time.
+
+                it means through this method we can access the specific list iteam by just putting its index inside [] 
+                
+                Now if we want to access all the elements at once only and by this method then we have to use for-each loop.
+                
+                const iteams = list.querySelectorAll('li')
+                iteams.forEach( (it) => it.style.backgroundColor = 'blue' )
+
+
+document.getElementsByClassName("newclass") ==> give all the elements having this class in the form of HTML Collection ( not array)
+can perform the operation on it by mentioning the index of the element we have to give property.
+like :
+const collection = document.getElementsByClassName("newclass")
+
+collection[2].style.backgroundColor = 'blue'
+
+Now this HTML collection does not have the proprty of for-each loop ( like array and nodelist have)
+so to apply for each loop we have to first convert this HTML collection to array.
+
+Array.from(collection)
+
+const new = Array.from(collection)
+new.forEach( (iteam) => iteam.style.backgroundColor = " red" )
+-->

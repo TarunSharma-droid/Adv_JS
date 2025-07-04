@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Lets do some exercise</title>
+</head>
+<body style = "background-color: black; color: red">
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+</body>
+
+<script>
+
+// 1} adding element
+    function addLanguage(name){
+
+        const iteam = document.createElement('li')
+        iteam.innerHTML = `${name}`
+
+        document.querySelector('.language').appendChild(iteam)
+    }
+
+    addLanguage("Python")             // we can do this work without creating fucntion also 
+    // but function create krne se ye hau hai ki or bhi list iteams easily add kre ja skte hain itna bada code bar bar nhi likhna padega.
+
+    addLanguage("TypeScript")
+    addLanguage("Css")
+
+// 2} editing element
+    const secondLanguage = document.querySelector('li:nth-child(2)')
+    secondLanguage.innerHTML = "Ruby"
+
+    // method 2 
+    const newli = document.createElement('li')
+    newli.innerHTML = "Rust"
+
+    secondLanguage.replaceWith(newli)
+
+    // method 3
+    const firstLanguage = document.querySelector('li:nth-child(1)')
+
+    firstLanguage.outerHTML = '<li> C++ </li>'
+
+// removing element
+
+    const lastLanguage = document.querySelector('li:nth-child(4)')
+    lastLanguage.remove()
+</script>
+</html>

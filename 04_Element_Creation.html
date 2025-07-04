@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node List</title>
+</head>
+<body style = "background-color: black; color: red">
+    
+</body>
+
+<script>
+
+    const container =  document.createElement('div')
+    console.log(container)
+
+    container.className = 'Main'
+    container.id = Math.floor(Math.random() * 10 + 1) // for fun we have used random no function to give the id to container
+    
+    container.setAttribute("class","main") // we can also use setAttribute function
+    container.setAttribute("title","I am A.I.")
+
+
+    container.style.backgroundColor =" red"
+    container.style.color =" black"
+
+    container.innerText = "Tarun Sharma is A.I."
+    // to give content to div we can also do
+    const addText = document.createTextNode("A.I. is dangerous") // text node create kiya div ke liye or usko hold kiya addText mai
+    container.appendChild(addText) // is step mai jo text node create kiya tha vo div ko de diya
+
+
+// Now jo bhi hamne div create kiya hai vo abhi sirf memory mai hai usko page pe lane ke liye hame use attach krna padega.
+
+    document.body.appendChild(container) // document ki body mai ek child lo(append karo) i.e. div(container)
+
+</script>
+
+</html>
