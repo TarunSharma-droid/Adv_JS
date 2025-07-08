@@ -33,7 +33,7 @@
     // console.log(e)  ===> tells all the information about the event.
         alert('Pirates of Carabian')
       
-    },false) // false is the third parameter and the default value likho ya na liko koi matlb nhi.
+    },false) // false is the third parameter and it is the default value likho ya na liko koi matlb nhi ( false he rehti hai value).
     
 
 
@@ -49,29 +49,28 @@
     third.addEventListener('click', function(e){  
 
         console.log("You have Clicked the devil")
-        // e.stopPropagation() ==> to stop Event capturing and Event Bubbling than in that 
+        // e.stopPropagation() ==> to stop Event capturing and Event Bubbling . 
     },false)  
     
     // Third Parameter is false (default)
     // when clicked on the wallpaper3 then two results will display......
     // first ==> You have Clicked the devil
     // second ==> You have Clicked inside the ul
-    // this is because "EVENT BUBBLING" is happening which moves form down to up.
+    // this is because "EVENT BUBBLING" is happening which moves form children to parent.
 
     // But in case we make the value "true" than in that case "EVENT CAPTURING" will
-    // happen which moves from the top to bottom.
+    // happen which moves from parent to children.
 
 
     const google = document.getElementById('google')
     google.addEventListener('click',function(e){
   
-        e.stopPropagation() // stop EVENT PROPOGATION
+        e.stopPropagation() // stop EVENT PROPOGATION <bubbling or capturing>
         e.preventDefault() // stop going to google.com
         console.log("Google Clicked")
 
     })
-     
-
+    
     </script>
 </body>
 
