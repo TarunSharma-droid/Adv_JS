@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Events</title>
+    
+</head>
+<body style = "background-color: grey;">
+    <h2>Amazing Elements</h2>
+    <div>
+        <ul id ="images">
+            <li><img width="200px" id="wallpaper1" src="wallhaven-3ldpw9_1920x1080.png" alt=""> </li>
+            <li><img width="200px" id="wallpaper2" src="wallhaven-lmjw5l_1920x1080.png" alt=""> </li>
+            <li><img width="200px" id="wallpaper3" src="wallhaven-yjd9d7_1920x1080.png" alt=""> </li>
+            <li><a style ="color:black" id="google" href="https://www.google.com" > Google </a> </li>
+            
+        </ul>
+    </div>
+
+    <script>
+
+    // const first = document.getElementById('wallpaper2')
+    // first.onclick = function(){
+    //     alert("Pirate")
+    // }
+    
+    // Alternate method ====>
+    const first = document.getElementById('wallpaper2') 
+    first.addEventListener('click', function(e){            // can also use attachEvent() at place of addEventListener .
+        
+    // console.log(e)  ===> tells all the information about the event.
+        alert('Pirates of Carabian')
+      
+    },false) // false is the third parameter and the default value likho ya na liko koi matlb nhi.
+    
+
+
+    const second = document.getElementById('images') 
+    second.addEventListener('click', function(e){  
+
+        console.log("You have Clicked inside the ul") 
+    },false) 
+    // when clicked on the images then only one results will display......
+    // You have Clicked inside the ul
+
+    const third = document.getElementById('wallpaper3') 
+    third.addEventListener('click', function(e){  
+
+        console.log("You have Clicked the devil")
+        // e.stopPropagation() ==> to stop Event capturing and Event Bubbling than in that 
+    },false)  
+    
+    // Third Parameter is false (default)
+    // when clicked on the wallpaper3 then two results will display......
+    // first ==> You have Clicked the devil
+    // second ==> You have Clicked inside the ul
+    // this is because "EVENT BUBBLING" is happening which moves form down to up.
+
+    // But in case we make the value "true" than in that case "EVENT CAPTURING" will
+    // happen which moves from the top to bottom.
+
+
+    const google = document.getElementById('google')
+    google.addEventListener('click',function(e){
+  
+        e.stopPropagation() // stop EVENT PROPOGATION
+        e.preventDefault() // stop going to google.com
+        console.log("Google Clicked")
+
+    })
+     
+
+    </script>
+</body>
+
+
+</html>

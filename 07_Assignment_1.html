@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Events</title>
+    
+</head>
+<body style = "background-color: grey;">
+    <h2>Amazing Elements</h2>
+    <div>
+        <ul id ="images">
+            <li><img width="200px" id="wallpaper1" src="wallhaven-3ldpw9_1920x1080.png" alt=""> </li>
+            <li><img width="200px" id="wallpaper2" src="wallhaven-lmjw5l_1920x1080.png" alt=""> </li>
+            <li><img width="200px" id="wallpaper3" src="wallhaven-yjd9d7_1920x1080.png" alt=""> </li>
+            <li><a style ="color:black" id="google" href="https://www.google.com" > Google </a> </li>
+            
+        </ul>
+    </div>
+
+    <script>
+
+    const images = document.getElementById('images')
+    images.addEventListener('click' , function(e){
+
+        console.log(e.target.parentNode) // when we click on image  its parent will get select that is list-iteam. 
+
+        let removeIt = e.target.parentNode 
+        removeIt.remove() // to remove the image when clicked on the image. Full list-iteam will get remove.
+
+        // But this creates a error ...when we click on any edges then in that
+        // case full list will get select in the parent and gets removed.
+    })
+
+    </script>
+</body>
+
+
+</html>
