@@ -10,9 +10,9 @@
     <h2>Amazing Elements</h2>
     <div>
         <ul id ="images">
-            <li><img width="200px" class= "doc" id="wallpaper1" src="wallhaven-3ldpw9_1920x1080.png" alt=""> </li>
-            <li><img width="200px" class= "doc" id="wallpaper2" src="wallhaven-lmjw5l_1920x1080.png" alt=""> </li>
-            <li><img width="200px" class= "doc" id="wallpaper3" src="wallhaven-yjd9d7_1920x1080.png" alt=""> </li>
+            <li class= "doc"><img width="200px"  id="wallpaper1" src="wallhaven-3ldpw9_1920x1080.png" alt=""> </li>
+            <li class= "doc"><img width="200px"  id="wallpaper2" src="wallhaven-lmjw5l_1920x1080.png" alt=""> </li>
+            <li class= "doc"><img width="200px"  id="wallpaper3" src="wallhaven-yjd9d7_1920x1080.png" alt=""> </li>
             <li><a style ="color:black" id="google" href="https://www.google.com" > Google </a> </li>
             
         </ul>
@@ -21,11 +21,11 @@
     <script>
 
     const images = document.getElementById('images')
+    
     images.addEventListener('click' , function(e){
 
-        if(e.target.tagName === 'IMG'){ 
-        // we cannot do  e.target.parentNode === 'li' for comparison because  e.target.parentNode is a DOM element and 'li' is string so it always gives false.
-
+        if(e.target.tagName === 'IMG' ){ 
+        
             let removeIt = e.target.parentNode 
             removeIt.remove()
   
@@ -37,3 +37,27 @@
 
 
 </html>
+
+<!--
+we cannot do  (e.target.parentNode === 'li') for comparison because  (e.target.parentNode) is a DOM element 
+and 'li' is string so it always gives false.
+
+Also,
+const photo = document.getElementByClassName('doc')
+
+images.addEventListener('click' , function(e){
+
+        if(e.target.parentNode === photo ){ 
+
+            let removeIt = e.target.parentNode 
+            removeIt.remove()
+  
+        }
+    } 
+  
+    
+this will also not works because (getElementsByClassName) returns an HTMLCollection, not a single element,
+so doing:
+e.target.parentNode === photo
+is never going to be true, because you're comparing a single DOM element (e.target.parentNode) with a collection (photo).
+-->

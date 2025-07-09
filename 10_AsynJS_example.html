@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asyncronus JavaScript</title>
+</head>
+<body>
+    <h1> My name is Tarun Sharma </h1>
+    
+</body>
+    <script>
+        
+        const slogan = document.createElement('h2')
+        slogan.innerHTML = "how are you doing"
+        document.body.appendChild(slogan);  //  to Append to the page
+
+ 
+        const heading = document.querySelector('h1') // Asynchoronous function so executes in last.
+        setTimeout( function(){
+
+            heading.innerHTML = 'I am Cool :) '
+        } , 2000 )
+
+        const say = document.createElement('h2')
+        say.innerHTML = "kese ho"
+        document.body.appendChild(say); //  to Append to the page
+
+
+        
+    </script>
+</html>

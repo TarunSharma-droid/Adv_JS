@@ -42,7 +42,7 @@
 
         console.log("You have Clicked inside the ul") 
     },false) 
-    // when clicked on the images then only one results will display......
+    // when clicked on any images then results will display......
     // You have Clicked inside the ul
 
     const third = document.getElementById('wallpaper3') 
@@ -56,11 +56,12 @@
     // when clicked on the wallpaper3 then two results will display......
     // first ==> You have Clicked the devil
     // second ==> You have Clicked inside the ul
-    // this is because "EVENT BUBBLING" is happening which moves form children to parent.
-    // So here JS is working Asyncronusly. 
+    // this is because "EVENT BUBBLING" is happening which moves form children to parent no matter whats the sequence of the code.
+
+    // So NOTE here JS is working Asyncronusly. means despite executing from top to bottom its is executing bottom to
 
     // But in case we make the value "true" than in that case "EVENT CAPTURING" will
-    // happen which moves from parent to children.
+    // happen which moves from parent to children no matter whats the sequence of the code.
 
 
     const google = document.getElementById('google')
