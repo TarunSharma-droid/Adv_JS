@@ -1,0 +1,39 @@
+<!-- setInterval and clearInterval -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asyncronus JavaScript</title>
+</head>
+<body>
+    <h1> My name is Tarun Sharma </h1>
+    <button id="stop">Stop</button>
+    <button id="start">Start</button>
+    
+</body>
+    <script>
+        
+        const print = function(){ 
+
+            console.log("Hello, kese ho")
+            }
+        
+        let kamakro 
+
+        const set = document.getElementById('start')
+        set.addEventListener('click',function(){
+
+        kamkaro = setInterval(print,1000) // setInterval keeps on runnig untill not stopped
+        })
+
+        const stopKaro = document.getElementById('stop')
+        stopKaro.addEventListener('click',function(){
+
+            clearInterval(kamkaro)
+        })
+             
+        
+    </script>
+</html>
