@@ -40,12 +40,30 @@
 //     because JavaScript doesn't know how to render an object directly inside HTML.
 // 🔹 So we have to convert the JS object back into a string to display it properly.
 //     That's where JSON.stringify() helps — it converts the object into a string format.
+//     null	➡ No filtering — include all properties of the object
+//     2	➡ Indent each level by 2 spaces for pretty formatting
 
-document.body.innerHTML = `<h4>The data is:<pre>${JSON.stringify(data, null, 2)}</pre></h4> 
+document.body.innerHTML = `<h4>The data is:<pre>${JSON.stringify(data, null,2)}</pre></h4> 
                            <h2>Name: ${data.name}</h2>
                            <h2>Bio: ${data.bio}</h2>`
 
 //🔹 <h4> The data is : ${data} <h4>  ===> we cannot do like this because 'data' is in the form of JS object not a simple string.
     }
 </script>
-</html>
+</html> 
+
+
+<!--
+If your goal is only to display the full JSON response as a raw string, and you don’t care about accessing individual values
+like data.name or data.bio, then you can skip JSON.parse() completely.
+
+And  can directly do :
+    const data = waiter.responseText;
+    document.body.innerHTML = `<h4>The data is: <pre>${data}</pre></h4>`;
+    
+This will show the full raw JSON string (still readable because JSON is a text format).
+
+❌ BUT — here’s the limitation:
+If later you try to do this ==> data.name  // ❌ won't work
+You’ll get: undefined
+Because data is still just a string, not a JavaScript object .   -->
