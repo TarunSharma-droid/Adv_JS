@@ -1,0 +1,29 @@
+<!--
+API stands for ==> Application Programming Interface.
+
+Imagine this:
+You're at a restaurant.
+You sit at a table, and you want to order food.
+But you don’t go to the kitchen yourself.
+Instead, you give your order to a waiter.
+
+The menu = list of things you can ask for.
+The waiter = API.
+The kitchen = the system that prepares what you want.
+You = the user or another program.
+
+So…
+
+You → give order to waiter (API)
+Waiter → gives it to kitchen (System)
+Kitchen → prepares food and gives it to waiter
+Waiter → brings it back to you
+
+That’s exactly what an API does.
+
+In Computers:
+Your code or app (you) wants data or a service.
+The API sends that request to another system (like a server or database).
+The system responds, and the API brings back the data for you to use.
+
+-->
