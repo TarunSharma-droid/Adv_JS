@@ -26,16 +26,26 @@
     // 🔹 ACTUAL API CALL: Waiter now goes to the kitchen to fetch the data
 
     waiter.onload = function () { // 🔹 waiter.onload : RESPONSE HANDLER: What happens when the waiter returns with your dish (data)
-        waiter.responseText       // 🔹 waiter.responseText = The actual dish the kitchen brings back (user info in JSON format)
+        waiter.responseText       // 🔹 waiter.responseText = The actual dish the waiter brings back (user info in JSON format)
 
         const data = JSON.parse(waiter.responseText)
-        document.body.innerHTML = `<h4> The data is:<pre>${JSON.stringify(data, null, 2)}</pre></h4> 
-                                   <h2> Name:       ${data.name}</h2>
-                                   <h2> Bio:        ${data.bio}</h2>`
 
-    // <h4> The data is : ${data} <h4>  ===> we cannot do like this becaues data is an object (not a string), and JavaScript doesn't know
-    //  how to display an object as readable text inside an HTML string.
+// 🔹 waiter.responseText => gives the response as a JSON-formatted string (not directly usable as a JavaScript object)
+// 🔹 JSON.parse() => converts that JSON string into a real JavaScript object,
+//     so we can access values using dot notation (e.g., data.name, data.bio).
+//     Because we cannot access individual values from a string using dot notation.
 
+// 🔹 Now, if we want to display the complete data on the HTML web page,
+//     we cannot directly show the JavaScript object,
+//     because JavaScript doesn't know how to render an object directly inside HTML.
+// 🔹 So we have to convert the JS object back into a string to display it properly.
+//     That's where JSON.stringify() helps — it converts the object into a string format.
+
+document.body.innerHTML = `<h4>The data is:<pre>${JSON.stringify(data, null, 2)}</pre></h4> 
+                           <h2>Name: ${data.name}</h2>
+                           <h2>Bio: ${data.bio}</h2>`
+
+//🔹 <h4> The data is : ${data} <h4>  ===> we cannot do like this because 'data' is in the form of JS object not a simple string.
     }
 </script>
 </html>

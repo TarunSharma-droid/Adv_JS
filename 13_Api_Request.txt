@@ -7,15 +7,7 @@ You sit at a table, and you want to order food.
 But you don’t go to the kitchen yourself.
 Instead, you give your order to a waiter.
 
-So…
-
-You → give order to waiter (API)
-Waiter → gives it to kitchen (System)
-Kitchen → prepares food and gives it to waiter
-Waiter → brings it back to you
-
 That’s exactly what an API does.
-
 
 --> 
 🔹Browser (Webpage)     ==>	   You at the table
