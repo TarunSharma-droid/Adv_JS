@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BRIEF ABOUT API</title> 
+</head>
+<body style="background-color: grey;">
+    
+</body>
+<script>
+    
+  const info = 'https://api.github.com/users/TarunSharma-droid'
+    // 🔹 github             => server                                      = kitchen
+    // 🔹 api.github         => github's api(have all the users of github)  = menu 
+    // 🔹 TarunSharma-droid  => user info                                   = dish I want from the menu 
+
+    const waiter = new XMLHttpRequest()  
+    // 🔹 WAITER: XMLHttpRequest object
+
+    waiter.open('GET', info)  
+    // 🔹 ORDER SETUP: Tell the waiter to GET a dish (tarunsharma) from the kitchen (GitHub server)
+    // 🔹 This does NOT send the request yet — you're just placing the order
+
+    waiter.send()  
+    // 🔹 ACTUAL API CALL: Waiter now goes to the kitchen to fetch the data
+
+    waiter.onload = function () { // 🔹 waiter.onload : RESPONSE HANDLER: What happens when the waiter returns with your dish (data)
+        waiter.responseText       // 🔹 waiter.responseText = The actual dish the kitchen brings back (user info in JSON format)
+
+        const data = JSON.parse(waiter.responseText)
+        document.body.innerHTML = `<h4> The data is:<pre>${JSON.stringify(data, null, 2)}</pre></h4> 
+                                   <h2> Name:       ${data.name}</h2>
+                                   <h2> Bio:        ${data.bio}</h2>`
+
+    // <h4> The data is : ${data} <h4>  ===> we cannot do like this becaues data is an object (not a string), and JavaScript doesn't know
+    //  how to display an object as readable text inside an HTML string.
+
+    }
+</script>
+</html>
