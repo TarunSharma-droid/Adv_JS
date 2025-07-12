@@ -1,0 +1,157 @@
++++++++++++++++++ STORY OF JAVASCRIPT +++++++++++++++++++++++++
+
+🔹JS is single threaded language means at one time one instruction will get executes and its result will appears.
+JavaScript has only one call stack, and it can execute only one task at a time.
+
+🔹By default, JavaScript is synchronous in nature. This means that code executes line-by-line in the order it is written,
+   and each operation must complete before the next one begins (single threaded).
+
+EXAMPLE ==>                                      Synchronous Code 
+
+    console.log("Step 1");
+    console.log("Step 2");
+    console.log("Step 3");
+
+All three lines go to the call stack, one by one, and get executed in the same order.
+
+Output:
+Step 1
+Step 2
+Step 3
+📌 This is called synchronous code — each line waits for the previous one to finish before starting.
+
+
+
+🔹 However, there are some functions in JavaScript (like setTimeout, fetch, promises, etc.) that make JavaScript 
+    behave asynchronously.
+    This means the order of execution is not always sequential, because some tasks are delayed to be handled later (via the event loop),
+    while the rest of the code continues to execute.
+🔹 Still, JavaScript remains single-threaded — it executes one task at a time, but uses mechanisms like the callback queue and event loop
+    to manage asynchronous operations without blocking the main thread.
+
+
+EXAMPLE ==>                                     Asynchronous Code (simple)
+
+    console.log("Start");
+
+    setTimeout(() => {                                      setTimeout is a Asynchoronous function
+    console.log("Inside setTimeout");
+    }, 2000);
+
+    console.log("End");
+
+Output:
+
+Start
+End
+Inside setTimeout
+
+🔍 What happens internally:
+Start → goes to the call stack → executed immediately
+setTimeout(...) → sent to Web APIs (outside main call stack where it waits utill the time given to it. )
+End → goes to call stack → executed
+
+After 2000ms → callback () => console.log("Inside setTimeout") goes to callback queue
+Event loop checks weather the call stack is empty if yes then it puts it into the main call stack for execution.
+
+📌 Even though the setTimeout was written between "Start" and "End", it runs after 2 seconds.
+
+
+            
+EXAMPLE ==>                                  Synchronous + Asynchronous Mix 
+
+        console.log("Cooking Started");
+
+        setTimeout(() => {
+        console.log("Boiling Water Done");
+        }, 3000);
+
+        console.log("Cutting Vegetables");
+
+        setTimeout(() => {
+        console.log("Rice Cooked");
+        }, 2000);
+
+        console.log("Cooking Finished");
+
+Output:
+
+Cooking Started
+Cutting Vegetables
+Cooking Finished
+Rice Cooked
+Boiling Water Done
+
+
+🔍 What happens internally:
+Cooking Started → call stack → run
+setTimeout (3000) → goes to Web API (outside main call stack where it waits utill the time given to it. )
+Cutting Vegetables → call stack → run
+setTimeout (2000) → goes to Web API (outside main call stack where it waits utill the time given to it. )
+Cooking Finished → call stack → run
+
+After timers complete:
+
+Rice Cooked (after 2 sec) → goes to queue → then to call stack ( event loop checks weather the call stack is empty or not)
+Boiling Water Done (after 3 sec) → goes to queue → then to call stack
+
+📌 Even though Rice Cooked was written after Boiling Water Done, it appears first because it had a shorter delay.
+
+
+
+
+EXAMPLE ==>                                All Async Functions (having same reponce Same Time)
+
+        setTimeout(() => {
+        console.log("Task 1");
+        }, 1000);
+
+        setTimeout(() => {
+        console.log("Task 2");
+        }, 1000);
+
+Output:
+
+Task 1
+Task 2
+
+🔍 What happens internally:
+Both tasks are sent to Web APIs and not to call stack direclty as they are asyn functions and timers start at the same time.
+After 1000ms, both are ready to get transfer to main call stack
+But only one can go into the call stack at a time so sequence is followed here.
+
+📌 Even though timers finished together,
+they are executed one-by-one — because JavaScript is still single-threaded.
+
+
+
+EXAMPLE ==>                                 All Asynchronous Code with Different Timings
+
+        setTimeout(() => {
+        console.log("Task A - after 3000ms");
+        }, 3000);
+
+        setTimeout(() => {
+        console.log("Task B - after 1000ms");
+        }, 1000);
+
+        setTimeout(() => {
+        console.log("Task C - after 2000ms");
+        }, 2000);
+
+
+Output:
+
+Task B - after 1000ms
+Task C - after 2000ms
+Task A - after 3000ms
+
+🔍 What happens internally?
+All setTimeout() calls are sent to Web APIs immediately
+Task B finishes first (1000ms)
+Then Task C (2000ms)
+Then Task A (3000ms)
+JS doesn’t wait → call stack is empty so the callback is moved to callback queue.
+Event loop picks them up one by one and puts them in the call stack
+
+📌 Even though they were written in a different order, Output order is based on completion time, not code order.

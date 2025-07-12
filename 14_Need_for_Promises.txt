@@ -1,0 +1,63 @@
+
+In JavaScript, when you write multiple asynchronous tasks with different delays, they complete based on their 
+individual timers — not the order you wrote them in.
+
+EXAMPLE ===>
+
+        setTimeout(() => {
+        console.log("Step A");
+        }, 3000);
+
+        setTimeout(() => {
+        console.log("Step B");
+        }, 1000);
+
+        setTimeout(() => {
+        console.log("Step C");
+        }, 2000);
+
+Output:
+
+Step B   ✅ (after 1 sec)
+Step C   ✅ (after 2 sec)
+Step A   ✅ (after 3 sec)
+
+📌 Even though Step A is written first, it prints last — because it has the longest delay.
+
+
+
+Now if we want to force the execution to be inorder no matter the delays times of these functions. 
+then we can do it by using the "Callback Nesting (Chaining)" also knows as "Callback Hell".
+By using callback chaining we can make the asynchronous code to flow like synchronous.
+
+        setTimeout(() => {
+        console.log("Step A");
+
+            setTimeout(() => {
+                console.log("Step B");
+
+                    setTimeout(() => {
+                    console.log("Step C");
+                    }, 2000); 
+
+            }, 1000); 
+
+        }, 3000); 
+
+ Output (Now in Order):
+
+Step A  ✅ (after 3s)
+Step B  ✅ (after 4s)
+Step C  ✅ (after 6s)
+
+Working ==> 
+setTimeout(..., 3000)      starts immediately (but its callback waits for 3 seconds).
+
+After 3 seconds, it executes:  console.log("Step A");
+Then it starts another setTimeout() inside it (for Step B), waiting 1 more second and so on.
+
+
+
+NOTE ===> But it is very difficult to use and read such code made by callback hell .
+          So here comes PROMISES which overcomes this issue of callback Nesting or hell.
+
