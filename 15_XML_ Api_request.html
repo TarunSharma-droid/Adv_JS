@@ -16,7 +16,7 @@
     // 🔹 TarunSharma-droid  => user info                                   = dish I want from the menu 
 
     const waiter = new XMLHttpRequest()  
-    // 🔹 WAITER: XMLHttpRequest object
+    // 🔹 WAITER: creating object of classXMLHttpRequest()
 
     waiter.open('GET', info)  
     // 🔹 ORDER SETUP: Tell the waiter to GET a dish (tarunsharma) from the kitchen (GitHub server)
@@ -45,8 +45,9 @@
 
 document.body.innerHTML = `<h4>The data is:<pre>${JSON.stringify(data, null,2)}</pre></h4> 
                            <h2>Name: ${data.name}</h2>
-                           <h2>Bio: ${data.bio}</h2>`
-
+                           <h2>Bio: ${data.bio}</h2>
+                           <h2>Followers : ${data.followers}</h2> `
+                           
 //🔹 <h4> The data is : ${data} <h4>  ===> we cannot do like this because 'data' is in the form of JS object not a simple string.
     }
 </script>
@@ -60,10 +61,8 @@ like data.name or data.bio, then you can skip JSON.parse() completely.
 And  can directly do :
     const data = waiter.responseText;
     document.body.innerHTML = `<h4>The data is: <pre>${data}</pre></h4>`;
-    
-This will show the full raw JSON string (still readable because JSON is a text format).
 
-❌ BUT — here’s the limitation:
-If later you try to do this ==> data.name  // ❌ won't work
+LIMITATION ==>
+If later you try to do this ==> data.name  
 You’ll get: undefined
 Because data is still just a string, not a JavaScript object .   -->
