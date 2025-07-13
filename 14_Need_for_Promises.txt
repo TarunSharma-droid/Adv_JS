@@ -60,4 +60,5 @@ Then it starts another setTimeout() inside it (for Step B), waiting 1 more secon
 
 NOTE ===> But it is very difficult to use and read such code made by callback hell .
           So here comes PROMISES which overcomes this issue of callback Nesting or hell.
+          Promises were introduced in JavaScript to solve the problem of callback hell.
 
