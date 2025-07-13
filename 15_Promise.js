@@ -65,7 +65,7 @@ cooking.then(function() {
 });
 
 
-//  Example 4 ==> promise having multiple asyn function in it..... show that two asyn tasks can run in sequencw using promises. 
+//  Example 4 ==> promise having multiple asyn function in it..... show that two asyn tasks can run in sequence using promises. 
 
 
 let promiseOne = new Promise(function(resolve, reject) { 
@@ -150,21 +150,23 @@ let promiseThree = new Promise(function (resolve, reject) {
 
 promiseThree.then(() => {
               console.log("Tarun is printed");
-              return doThis(); // 
+              return doThis(); 
             })
-promiseThree.then(() => {
+            .then(() => {              // this syntax ensures one-after-another execution, not parallel
               return newtask(); 
             })
   
-// it is compulsory to use the promise inside th function one or two .. if not then both functions act as simple asyn settimeout functions
-// and will not care for the sequence of the code.
+//  📌 It is important to use Promises inside functions like doThis() and newtask()
+//     because if we don’t, they will just behave like simple setTimeout functions.
+// 📌  In that case, both functions run at the same time (in parallel),
+//     and the one with the shorter delay may finish first — breaking the sequence.
 
 function doThis() {
   return new Promise(function (resolve, reject) {
     setTimeout(() => {
       console.log("Sharma");
-      resolve(); // compulsory to use here because if we ignore resolve here then promise will not get complete and newtask() will not run.
-    }, 4000);
+      resolve();   // resolve() is required here, because unless this Promise resolves, the next .then() (which triggers newtask())              
+    }, 4000);      // will not start. Without resolve(), the chain breaks.
   });
 }
 
@@ -173,8 +175,8 @@ function newtask() {
   return new Promise(function (resolve, reject) {
     setTimeout(() => {
       console.log("MBBS");
-      resolve(); // here we can ignore this resolve because the completion of this promise will not affect any further function.
-    }, 3000);
+      resolve(); // here we can ignore this resolve because  here the completion of this promise will not trigger any further function.
+    }, 3000);    // But remember if we ignore resolve() here, the chain will hang and the final .then() (if added) will never execute.
   });
 }
 
