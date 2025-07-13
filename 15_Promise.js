@@ -1,6 +1,6 @@
 // Promise :
 
-// // Example 1}
+// Example 1}
  
 // if resolved ==> then part will executes
 // if reject ==> catch part will exeuctes
@@ -25,7 +25,7 @@ promise_first.catch(function(){     // state reject ho gyi to ye chalega
 
 
 
-// // Example 2
+// Example 2
 
 
 const random = Math.floor(Math.random() * 10 + 1) // 1 to 10
@@ -48,24 +48,59 @@ promise_second.catch(function(){
 
 // Example 3 ==> promise having asyn function in it.....
 
+
 let cooking = new Promise(function(resolve, reject) { // Ek naya Promise create ho raha hai
 
   setTimeout(() => {                      //  Jaise hi Promise create hota hai, setTimeout ka 3 second ka timer turant start ho jaata hai
     console.log("Pizza tayar ho gaya!");  //  3 second baad yeh message console pe print ho jaata hai
     resolve();                            //  printing ke bad resolve call kr diya : yeh signal deta hai ki Promise ka kaam successfully 
- }, 3000);                                //  complete ho gaya — ab .then() wala part chalayenge
+ }, 3000);                                //  complete ho gaya — ab .then() wala part activate hoga aur uske andar ka function run hoga.
 
 
 }); 
 
-//  Jab resolve() call ho jaata hai (yaani Promise fulfilled ho jaata hai) tab .then() activate hota hai aur uske andar ka function run hota hai.
-
 cooking.then(function() {
-  console.log("Pizza ko serve kar diya"); // ✅ Jab Promise resolve hota hai tab yeh line chalti hai
+  console.log("Pizza ko serve kar diya"); 
 });
 
 
-//  Example 4 ==> promise having multiple asyn function in it..... show that two asyn tasks can run in sequence using promises. 
+
+// Example 4 +++++++++++ another syntax of promises ++++++++++++++
+
+
+new Promise(function(resolve ,reject){
+
+  setTimeout( function(){
+    console.log('Superman')
+    resolve()
+  },6000)
+
+}).then(function(){
+
+  console.log("best superhero")
+})
+
+
+
+// Example 5 ++++++++++ another syntax of promises +++++++++++++++
+
+
+const solid = new Promise(function(resolve,reject){
+
+  setTimeout(function(){ // promise bante he setTimeout ka timer start ho gya.. timer katam hote he resolve call ho gya to ab "then" chalega.
+
+    resolve( {username : 'Tarun' , password : '12345'} )  // resolve call hua or us mai data de diya....ye data "then" mai transfer ho jayega..
+  },2000)
+
+})
+
+solid.then(function(data){
+   console.log(data)
+})
+
+
+
+//  Example 6 ==> promise having multiple asyn function in it..... show that two asyn tasks can run in sequence using promises. 
 
 
 let promiseOne = new Promise(function(resolve, reject) { 
@@ -85,61 +120,14 @@ promiseOne.then(function() {
     console.log("Second task takes 3 second to complete");
   },3000)
 
-});
-
-// The code successfully show that two asynchronous tasks with different durations can run in sequence using Promises.
-
-
-//  Example 5 ==> multiple asyn functions having different time 
-
-// let promiseThree = new Promise ( function( resolve , reject ){
-
-//   setTimeout ( () => {
-//       console.log("Tarun")
-//       resolve()
-//     }, 6000 )
-//   })
-
-//   promiseThree.then(  // after execution of console.log("Tarun") , resolve is called so ==> "then" will run....
-    
-//     function(){
-//       console.log("Tarun is printed")
-//       one()       // do this function is called here
-     
-//   })
+});  
+ 
 
 
+//Example 7 ==> multiple asyn functions having different time 
+ 
 
-//  function one(){  
-//   let promiseFour = new Promise ( function(resolve,reject){  // created a promise inside this function . 
-
-//     setTimeout ( () => { // starts timing when one() is called in promiseThree.then
-//       console.log("Sharma")
-//       resolve()
-//     }, 4000 )
-//   })
-  
-//     promiseFour.then( // after resolve is called then will run
-//        function(){
-//         two()  // two is called here so now timer for two will start
-//        })
-//   }
-
-//  function two(){
-//   let promiseFive = new Promise ( function(resolve,reject){
-
-//     setTimeout ( () => {
-//       console.log("MBBS")
-//       resolve()
-//     },3000 )
-//   })
-//   }            // Still not the best clean code
-
-
-  
-// Cleanest code..
-
-let promiseThree = new Promise(function (resolve, reject) {
+let promiseFour = new Promise(function (resolve, reject) {
   setTimeout(() => {
     console.log("Tarun");
     resolve();
@@ -148,7 +136,7 @@ let promiseThree = new Promise(function (resolve, reject) {
 
 // Execute all in sequence using promise chaining
 
-promiseThree.then(() => {
+promiseFour.then(() => {
               console.log("Tarun is printed");
               return doThis(); 
             })
@@ -156,7 +144,7 @@ promiseThree.then(() => {
               return newtask(); 
             })
   
-//  📌 It is important to use Promises inside functions like doThis() and newtask()
+// 📌 It is important to use Promises inside functions like doThis() and newtask()
 //     because if we don’t, they will just behave like simple setTimeout functions.
 // 📌  In that case, both functions run at the same time (in parallel),
 //     and the one with the shorter delay may finish first — breaking the sequence.
@@ -166,7 +154,7 @@ function doThis() {
     setTimeout(() => {
       console.log("Sharma");
       resolve();   // resolve() is required here, because unless this Promise resolves, the next .then() (which triggers newtask())              
-    }, 4000);      // will not start. Without resolve(), the chain breaks.
+    }, 4000);      // will not start. Without resolve(), the chain breaks. // So we can say resolve() is the key for next function.
   });
 }
 
@@ -180,3 +168,41 @@ function newtask() {
   });
 }
 
+/* the second .then() does not taking any input from the first .then so in case if doThis return some value or in do this
+we use resolve("hello") then also it will not be passed to second .then as it is not accepting the parameters. */
+
+
+
+// Example 8 ==>
+
+  
+  let value = false
+
+  let abstract =  new Promise(function(resolve,reject){
+
+     
+        if(!value){
+           resolve({username : "Tarun" , password : "1234"})
+        }
+
+        else reject("ERROR")
+
+  })
+
+  abstract
+  .then( function(data){   // First then
+    console.log(data)
+    console.log(data.username)
+
+    return data.username // ye retun jayega next "then" mai agar defined hai to or parameter accept kr rha hai to
+  })
+  .then( function(newdata){  // Second then
+    console.log(`${newdata} is a good boy`)
+  })
+  .catch( function(anotherData){
+    console.log(`${anotherData} ....error aa gyi yar`)
+  })
+
+// The first .then() returns data.username.
+// That returned value automatically becomes the input to the next .then() — newdata.
+// That’s how Promise chaining works 
