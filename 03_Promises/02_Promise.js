@@ -1,6 +1,6 @@
 // Promise :
 
-// Example 1}
+// Example 1}  just simple example to see the working else promise  works perfectly with only async functions.
  
 // if resolved ==> then part will executes
 // if reject ==> catch part will exeuctes
@@ -65,7 +65,33 @@ cooking.then(function() {
 
 
 
-// Example 4 +++++++++++ another syntax of promises ++++++++++++++
+// Example 4 ==> promise having asyn function in it.....
+
+let age = 6
+
+let promise_done = new Promise(function (resolve, reject) {
+
+  setTimeout(() => {
+    if (age > 18) resolve("i am demon");
+
+    else reject("i am tarun");
+
+  }, 1000);
+});
+
+promise_done
+  .then(function () {
+    console.log("You are adult");
+  })
+  .catch(function (data) {
+    console.log(`${data} You are minor`);
+  });
+
+// Here reject is running ==> still not getting error in the console. Because using .then and .catch()
+// Otherwise If async/await is used without a try...catch, and the Promise is rejected, you'll sure get 
+// an error in the console .
+
+// Example 5 +++++++++++ another syntax of promises ++++++++++++++
 
 
 new Promise(function(resolve ,reject){
@@ -82,7 +108,7 @@ new Promise(function(resolve ,reject){
 
 
 
-// Example 5 ++++++++++ another syntax of promises +++++++++++++++
+// Example 6 ++++++++++ another syntax of promises +++++++++++++++
 
 
 const solid = new Promise(function(resolve,reject){
@@ -100,7 +126,7 @@ solid.then(function(data){
 
 
 
-//  Example 6 ==> promise having multiple asyn function in it..... show that two asyn tasks can run in sequence using promises. 
+//  Example 7 ==> promise having multiple asyn function in it..... show that two asyn tasks can run in sequence using promises. 
 
 
 let promiseOne = new Promise(function(resolve, reject) { 
@@ -124,7 +150,7 @@ promiseOne.then(function() {
  
 
 
-//Example 7 ==> multiple asyn functions having different time 
+//Example 8 ==> multiple asyn functions having different time 
  
 
 let promiseFour = new Promise(function (resolve, reject) {
@@ -168,25 +194,25 @@ function newtask() {
   });
 }
 
-/* the second .then() does not taking any input from the first .then so in case if doThis return some value or in do this
-we use resolve("hello") then also it will not be passed to second .then as it is not accepting the parameters. */
+/* the second .then() does not taking any input from the first .then so in case if "doThis" function returns some value or give some value
+to resolve written inside it like  resolve("hello") then also it will not be passed to second .then as second .then is not accepting any parameters. */
 
 
 
-// Example 8 ==>
+// Example 9 ==>
 
   
-  let value = false
+  let value = true
 
   let abstract =  new Promise(function(resolve,reject){
 
-     
-        if(!value){
+     setTimeout(() => {
+        if(value){
            resolve({username : "Tarun" , password : "1234"})
         }
 
         else reject("ERROR")
-
+     }, 2000);
   })
 
   abstract
@@ -202,7 +228,12 @@ we use resolve("hello") then also it will not be passed to second .then as it is
   .catch( function(anotherData){
     console.log(`${anotherData} ....error aa gyi yar`)
   })
+  .finally( function(){ // Finally always runs.....
+    console.log("the promise is either resolved or reject")
+  }) // this always runs either the state is resolved or reject.
 
-// The first .then() returns data.username.
-// That returned value automatically becomes the input to the next .then() — newdata.
-// That’s how Promise chaining works 
+/* NOTE ==> The first .then() returns data.username.
+            That returned value automatically becomes the input to the next .then() — newdata as function is accepting the parameter.
+            That’s how Promise chaining works 
+
+*/
