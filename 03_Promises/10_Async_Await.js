@@ -6,37 +6,31 @@ let value = true
   let dothis =  new Promise(function(resolve,reject){
 
      setTimeout(() => {
-        if(!value){
+        if(value){
            resolve({username : "Tarun" , password : "1234"})
         }
 
-        else reject("ERROR")
+        else reject("Big")
      }, 2000);
   })
 
-//   async function consumeThePromise(){        // this is function so have to call it.
- 
-//      const result = await abstract           // it means consume the promise inside this variable.
-//      console.log(result)
-//    }
 
-//    consumeThePromise()                       // function call
-
-
-/* If you use async/await without handling errors (e.g., using try...catch), 
-   and the Promise gets rejected, you will get an unhandled error in the console.*/
-
-   
   async function consumeThePromise(){       
-     
+
    try{
-     const result = await dothis         
-     console.log(result)
+     console.log(await dothis)
    }
-   catch{
-      console.log('error')
+   catch(data2){
+      console.log(`${data2} error`)
    }
     
    }
 
    consumeThePromise()                      
+
+// In async/await, the value passed to resolve() is received by the await expression
+// and can be accessed directly. 
+// On the other hand, the value passed to reject() is caught in the catch block as a parameter (here data2).
+
+// If you use async/await without handling errors (e.g., using try...catch), 
+// and the Promise gets rejected, you will get an unhandled error in the console.
