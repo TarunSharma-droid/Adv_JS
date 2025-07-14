@@ -1,5 +1,6 @@
-// Async - await function can be use in place of then and catch.
+//  Promise using Async - await ( with try and catch) in the place of .then and .catch
 
+//  { async/await is a cleaner and more modern alternative to .then() and .catch() }
 
 let value = true
 
@@ -31,6 +32,3 @@ let value = true
 // In async/await, the value passed to resolve() is received by the await expression
 // and can be accessed directly. 
 // On the other hand, the value passed to reject() is caught in the catch block as a parameter (here data2).
-
-// If you use async/await without handling errors (e.g., using try...catch), 
-// and the Promise gets rejected, you will get an unhandled error in the console.
