@@ -25,7 +25,7 @@ fetch('https://api.github.com/users/TarunSharma-droid')
 })
 .catch( function(data2){
    console.log("ERROR!")
-   console.log(`Your error is ${data2}`)
+   console.log(data2)
 })
 
  // Note is we use like ==>  `your data is ${data1}` ==> not valid  ==>  it will show: [object Object]
