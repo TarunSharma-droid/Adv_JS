@@ -25,4 +25,4 @@ dataformAPI()
 //  directly catch block me chala jaata hai.
 
 
-
+// we can check the catch block execution by turning off the internet of the device.
