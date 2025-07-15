@@ -6,7 +6,7 @@
 // you don't create the resolve/reject yourself — fetch() does that internally.
 
 // If the network is okay, fetch() resolves (goes to .then() or continues in try)
-// If there's a network failure, fetch() rejects (goes to .catch() or jumps to catch block
+// If there's a network failure, fetch() rejects (goes to .catch() or jumps to catch block )
 
 
 fetch('https://api.github.com/users/TarunSharma-droid')  
@@ -28,5 +28,10 @@ fetch('https://api.github.com/users/TarunSharma-droid')
    console.log(data2)
 })
 
- // Note is we use like ==>  `your data is ${data1}` ==> not valid  ==>  it will show: [object Object]
- // so for this syntax in which we are writing inside the string we have to use the function JSON.stringify )
+ // Note  => if we use the syntax like ==>  `your data is ${data1}` ==>  it is not valid  ==>  it will show: [object Object]
+ // this is because data1 is having object in it .. and we are printing it with the string which is not valid .. 
+ // so we have to convert the object as string by using the method => JSON.stringify )
+
+
+ // Note => second then run he jab hoga jab first then chal jayega is liye hamne responce.json() (jo ki ek asynchorornous step hai)
+ // ke liye koi await vagera use nhi kiya yaha.
