@@ -11,24 +11,20 @@ let value = true
            resolve({username : "Tarun" , password : "1234"})
         }
 
-        else reject("Big")
+        else reject("Error")
      }, 2000);
   })
 
-
+  
   async function consumeThePromise(){       
 
    try{
-     console.log(await dothis)
-   }
+     const result = await dothis   // if dothis get resolve state ==> then result will get some value from await dothis and console will get run.
+     console.log(result)           // otherwise if dothis get reject state ==> then result will not get any value and code directly moves to catch block.
+   }                               // and the value passed to reject() is caught in the catch block as a parameter (here data2).
    catch(data2){
-      console.log(`${data2} error`)
+      console.log(data2)
+   } 
    }
-    
-   }
-
    consumeThePromise()                      
 
-// In async/await, the value passed to resolve() is received by the await expression
-// and can be accessed directly. 
-// On the other hand, the value passed to reject() is caught in the catch block as a parameter (here data2).

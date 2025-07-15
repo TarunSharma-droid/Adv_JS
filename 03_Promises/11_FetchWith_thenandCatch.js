@@ -10,20 +10,20 @@
 
 
 fetch('https://api.github.com/users/TarunSharma-droid')  
-//It returns a Promise, which when resolved gives you a Response object — not the actual JS object (Json)
+// It returns a Promise, which if resolved gives you a Response object — not the actual JS object (Json)
 // it means we cannot retrive data from that object by .notation .....
 // so we have to convert that object to the real JSON object (through which can we take out the data using .notation)
 
-.then(function(responce){
+.then(function(responce){  // First then ==> used to convert the responce object to JSON object if resolve is found.
 
-    return responce.json() // convert in JSON object and return  to next this.
+    return responce.json() // convert in JSON object and return to next this.
 })
 
 .then( function(data1){
     console.log("Task is successfull")
     console.log(data1) 
 })
-.catch( function(data2){
+.catch( function(data2){ // if reject is given from fetch .....
    console.log("ERROR!")
    console.log(data2)
 })
