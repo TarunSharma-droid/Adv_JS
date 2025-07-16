@@ -18,7 +18,7 @@ console.log(p1.Full_name)
 
 function User(name, age) { 
 
- this.Full_name = name; // name is value to the property Full_name 
+ this.Full_name = name; // name is value to the property Full_name of this object ( means User object)
  this.Current_age = age;
 
 }
@@ -33,9 +33,9 @@ console.log(u1.Full_name)
 
 // First method will would not work but second does......Because
 
-//🔹 Agar let use karte hain, to local variable banta hai jo sirf function ke andar valid hota hai.
+//🔹 Agar "let/const/var" use karte hain, to local variable banta hai jo sirf function ke andar valid hota hai.
 //    Usse object ke bahar (ya object ke through) access nahi kar sakte.
 
-//🔹 Agar this use karte hain, to wo object ki property ban jati hai,
+//🔹 Agar "this" use karte hain, to wo object ki property ban jati hai,
 //   Jise aap dot notation (obj.property) se kahin bhi access kar sakte ho, jab tak object exist karta hai.
     
