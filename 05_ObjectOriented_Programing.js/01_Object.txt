@@ -1,0 +1,37 @@
+++++++++++++++++++++++++  Object in JS +++++++++++++++++++++++++
+
+ In JavaScript, an object is a collection of key-value pairs,
+ like a container that stores related data and functionalities.
+
+++++++++++++++++++++++++  Object Literal +++++++++++++++++++++++++
+
+An object literal is the simplest way to create an object — just use curly braces {} with keys and values.
+
+Example : 
+
+let car = {
+  brand: "Toyota",
+  model: "Camry",
+  year: 2020
+};
+
+++++++++++++++++++++++ Object Constructor ++++++++++++++++++++++++++
+
+An object constructor is a function used as a template to create many objects with the same structure but different data.
+
+Example:
+
+function Person(name, age) {  ==> This is a constructor function. You can use it like this:
+  this.Full_name = name;
+  this.Current_age = age;
+}
+
+let p1 = new Person("Tarun", 22);
+let p2 = new Person("Raunak", 23);
+
+Every time you do new Person(...), you get a new object.
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
