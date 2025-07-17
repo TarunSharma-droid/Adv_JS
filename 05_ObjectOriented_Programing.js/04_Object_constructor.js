@@ -1,4 +1,7 @@
 
+// "new" => use krte he naya object/instance create hota hai .
+// And is "new" keyword ke through he constructor function call hota hai.
+
 // Method 1 )
 
 function Person(name, age) { 
