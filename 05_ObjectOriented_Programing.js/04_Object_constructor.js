@@ -33,9 +33,9 @@ console.log(u1.Full_name)
 
 // First method will would not work but second does......Because
 
-//🔹 Agar "let/const/var" use karte hain, to local variable banta hai jo sirf function ke andar valid hota hai.
+//🔹 Agar "let/const/var" use karte hai, to local variable banta hai jo sirf function ke andar valid hota hai.
 //    Usse object ke bahar (ya object ke through) access nahi kar sakte.
 
 //🔹 Agar "this" use karte hain, to wo object ki property ban jati hai,
 //   Jise aap dot notation (obj.property) se kahin bhi access kar sakte ho, jab tak object exist karta hai.
-    
+     
