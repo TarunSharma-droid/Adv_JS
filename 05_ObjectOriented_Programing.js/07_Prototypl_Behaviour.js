@@ -30,7 +30,7 @@ console.log( Person.prototype) // => we get => { sayHello: [Function (anonymous)
 p1 = new Person("Tarun")
 
 // JS creates a new object: { name: "Tarun" }
-// Every object in JavaScript has a hidden property called __proto__  (it is object's prototype)
+// Every object in JavaScript has a hidden property called __proto__  (it is prototype of the object created by "new" keyword. )
 // JavaScript connects the new object's internal prototype (__proto__) to the function's .prototype so it can inherit properties or methods from it.
 
 console.log(p1.__proto__ === Person.prototype) // true ==> connection establised (This means p1 inherits from Person.prototype)
