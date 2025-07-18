@@ -9,7 +9,7 @@ function Person(name){
 console.log( Person.prototype) // => { }
 
 //🔹Every normal function (not arrow function) has a special "hidden" property called .prototype (by default present for every fucntion),
-//  which is just a normal empty object.  This property is only used when we create a new object using the function with "new" .
+//  which is just a normal empty object.  This property is only used when we create a new object using the function with "new" to set up inheritance.
 
 //🔹This property is only used when we create a new object using the function with "new". It helps JavaScript to establish a connection
 //  between the object created using "new" and the function that created it (i.e., the constructor function).
