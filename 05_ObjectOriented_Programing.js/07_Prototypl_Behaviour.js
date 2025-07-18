@@ -18,7 +18,7 @@ console.log( Person.prototype) // => { }
 
 Person.prototype.sayHello = function(){ // added a function sayHello
 
-    console.log(`Hello ${this.Full_name}`)
+    console.log(`Hello ${this.Full_name}`) // this is used because => to tell the context (jis object ne bhi bulaya us ka Full_name).
 }
 
 console.log( Person.prototype) // => we get => { sayHello: [Function (anonymous)] } this shows sayHello is added to prototype property of Person.
