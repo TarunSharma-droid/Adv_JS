@@ -1,34 +1,31 @@
-// When we define properties of the fucntions :=>
+// +++++++++++++++++++ Manually Prototype setting for functions (objects) ++++++++++++++++++++++
 
 function SetUserName (getname){
 
     this.name_ofuser = getname
 }
 
+SetUserName.age = 34        // static property of SetUserName
+SetUserName.city = "jaipur" // static property of SetUserName
+
 function createUser (username , email , password){
        
-    SetUserName.call(this, username); 
     this.mail_ofUser = email
     this.password_ofUser = password
 
 }
 
+Object.setPrototypeOf(createUser, SetUserName) 
+// Does not work properly here as they are not simple objects
+// it only copies the static property of SetuserName to createUser and not the instance properties 
+// Instance Properties could only activate when object is created by the new keyword.
 
 const u1 = new createUser("Tarun" ,"tarunshama@gmail.com" , 2002)
 
 console.log(u1)
 
-/*
-When we normally call new SetUserName(...), the this inside SetUserName points to a 
-new object created by it.
+console.log(createUser.age) // static property is transfered
 
-But here, we don’t want to create a separate object — we want SetUserName to set properties
-on the object being created by createUser.
-
-So instead of letting SetUserName create its own this, we pass the this from createUser
-into SetUserName using .call(this, ...).
-
-That way, both constructors work on the same object, and all properties stay together.  */
 
 /* 
 Object.setPrototypeOf(createUser, SetUserName)
@@ -41,11 +38,6 @@ Object.setPrototypeOf(createUser, SetUserName)
 => Therefore, using Object.setPrototypeOf() between constructor functions is generally not useful 
    when the goal is to share or inherit instance behavior.
 
-=> To transfer or inherit instance properties, must use explicit calling 
+=> To transfer or inherit instance properties to object and one creates using new, must use explicit calling 
 
 */
-
-
-
-
-

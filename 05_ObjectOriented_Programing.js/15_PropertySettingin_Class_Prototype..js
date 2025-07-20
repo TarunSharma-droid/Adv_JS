@@ -24,21 +24,21 @@ const A1 = new Admin("Rajat" , "NewZeland")
 
 //     console.log("valid Class")
 // }                                      
-//
+//                                                this syntax not work here because Class keyword not exists is JS.
+//                                                so we cannot declare a property in prototype of all classes defined 
+// Admin.greet()                                  and will going to be defined.
+// User.greet()   
 
-// Admin.greet()
-// User.greet()   ==> not valid syntax because Class is not a keyword in JS. so have to use the name of class we want to target.
 
-
-User.prototype.greet = function(){
+User.prototype.greet1 = function(){               // have to decalare one by one
 
   return `Welcome User`
 }
 
-Admin.prototype.greet = function(){
+Admin.prototype.greet2 = function(){
 
   return `Welcome Admin`
 }
 
-console.log(U1.greet())
-console.log(A1.greet())
+console.log(U1.greet1())
+console.log(A1.greet2())

@@ -1,17 +1,16 @@
 
-// static is used when we does not want any object to use s
-// any property of class
+// static is used when we does not want any object to use any property of class
 
 class User {
 
     constructor(get_name){
 
-        this.username = get_name
+        this.name = get_name
     }
 
     logMe(){
 
-        console.log(`Username is${this.username}`)
+        console.log(`Username is${this.name}`)
     }
 
      static weekend(){
@@ -30,7 +29,7 @@ class Teacher extends User {
     }
 
     addCourse (){
-        console.log(`${this.username} is a good teacher`)
+        console.log(`${this.name} is a good teacher`)
     }
 }
 

@@ -14,7 +14,7 @@ function User(name,age){ // constructor function
     this.current_age = age
 }
 
-User.prototype.sayHello = function(){ // added a property sayHello to the protortype of constructor fucntion User.
+User.prototype.sayHello = function(){ // added a property sayHello to the prototype of constructor fucntion User.
 
     console.log(`Hello ${this.Full_name}`) 
 }
