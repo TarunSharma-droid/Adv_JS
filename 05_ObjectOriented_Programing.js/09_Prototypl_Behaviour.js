@@ -9,19 +9,18 @@ function Person(name){
 console.log( Person.prototype) // => { }
 
 //🔹Every normal function (not arrow function) has a special "hidden" property called .prototype (by default present for every fucntion),
-//  which is just a normal empty object.  This property is only used when we create a new object using the function with "new" to set up inheritance.
-
-//🔹This property is only used when we create a new object using the function with "new". It helps JavaScript to establish a connection
+//  which is just a normal empty object.
+//🔹This property is only used when we create a new object using the function with "new" to set up inheritance.. It helps JavaScript to establish a connection
 //  between the object created using "new" and the function that created it (i.e., the constructor function).
 
 //💡 Since we know that .prototype property is an empty object so we can add something to it just by using dot notation.
 
-Person.prototype.sayHello = function(){ // added a function sayHello
+Person.prototype.sayHello = function(){ // added a property sayHello ( wehich is a funtion in nature)
 
     console.log(`Hello ${this.Full_name}`) // this is used because => to tell the context (jis object ne bhi bulaya us ka Full_name).
 }
 
-console.log( Person.prototype) // => we get => { sayHello: [Function (anonymous)] } this shows sayHello is added to prototype property of Person.
+console.log( Person.prototype) // => we get => { sayHello: [Function (anonymous)] } this shows sayHello is added to prototype property of Person succesfully.
 
 
 

@@ -28,7 +28,7 @@ const DoubtSupport = {
  // the properties of TeacherAssistance.
 
 
- TeacherAssistance.__proto__ = Human // another syntax to access properties of another function.
+ TeacherAssistance.__proto__ = Human // another syntax to access properties of another object.
 
- Object.setPrototypeOf(Teacher , Human) // another syntax to access properties of another function.
+ Object.setPrototypeOf(Teacher , Human) // another syntax to access properties of another object.
  // Teacher have access to the property of Human.
