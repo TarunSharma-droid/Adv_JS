@@ -24,6 +24,7 @@ function multiplyBy5(num){
 }
 
 console.log(typeof multiplyBy5)
+
 multiplyBy5.power = 2           // it is just like we are adding the property to an object.
 console.log(multiplyBy5.power) // give valid result it means property has successfuly added to the function
 

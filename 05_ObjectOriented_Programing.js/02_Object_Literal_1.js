@@ -11,3 +11,7 @@ const user={
 
 console.log(user.username)
 console.log(user.message())
+
+user.age = 23 // adding property to object.
+
+console.log(user.age)
