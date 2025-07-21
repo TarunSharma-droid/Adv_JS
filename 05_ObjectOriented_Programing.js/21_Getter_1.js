@@ -14,7 +14,7 @@ const user1 = new User("Tarun" , 123)
 console.log(user1.password)
 
 // Now if we dont want to access the password as  user1.password 
-// So we can do an another thing.
+// So we can do two thing.
 
 class Admin{
 
@@ -27,13 +27,13 @@ class Admin{
 
 // Method 1 =>
     givePassword(){
-        return this.password
+        return `Your pass word is ${this.password}`
     }
     
 
 // Method 2 => defining in get
     get giveUserId(){
-            return this.id
+            return `Your id is ${this.id}`
         }
     }
 

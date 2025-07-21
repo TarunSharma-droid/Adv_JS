@@ -43,9 +43,9 @@ const a = new Admin("Tarun", "Sharma");
 console.log(a.fullName()); // Tarun Sharma
 
 a.firstName = "Rohit";
-console.log(a.fullName()); //  Rohit Sharma
+console.log(a.fullName()); //  Rohit Sharma => as second time function is called so it is again set with new values.
 
-// Now when you do =>   p.firstName = "Rohit"
+// Now when you do =>   a.firstName = "Rohit"
 
 // firstName is updated 
 // And also fullName is updated here — because fullName() returns the current values of 
@@ -57,7 +57,7 @@ console.log(a.fullName()); //  Rohit Sharma
 
 
 
-// 3 } To get changed fullname ( make it dynamic ) => use "get" with the method 1 only
+// 3 } To get changed fullname ( make it dynamic ) => can use "get" fucntion in place of simple function 
 
 class Manager {
   constructor(first, last) {
