@@ -9,12 +9,10 @@ class User {
     }
 
     logMe(){
-
         console.log(`Username is${this.name}`)
     }
 
      static weekend(){
-
         console.log("18 holidays")
     }
 }
