@@ -42,3 +42,6 @@ Admin.prototype.greet2 = function(){
 
 console.log(U1.greet1())
 console.log(A1.greet2())
+
+// console.log(U1.greet2())  gives error
+// console.log(A1.greet1())  gives error

@@ -6,6 +6,24 @@
     <title>React</title>
 </head>
 <body>
-    
+    <button>Button Clicked</button>
 </body>
+
+<script>
+
+    class React {
+        constructor(){
+
+            this.Library = "React"                    
+            this.server = "https://localhost:300"
+        }
+
+        handelClick(){
+            console.log("Button clicked")
+            console.log(`${this.server}`)
+        }
+    }
+
+    const app = new React()
+</script>
 </html>
