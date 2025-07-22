@@ -1,0 +1,45 @@
+<!-- Change backgroundColor color when button clicked-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: grey;">
+    
+    <button id="red"> Red  </button>
+    <button id="green"> Green </button>
+    <button id="pink"> Pink </button>
+    <button id="blue"> Blue </button>
+    <button id="yellow"> Yellow </button>
+
+    <script>
+      const Body = document.querySelector("body")
+
+      document.getElementById("red").addEventListener('click', function(){
+
+        Body.style.backgroundColor = "red"
+      })
+      document.getElementById("green").addEventListener('click', function(){
+
+        Body.style.backgroundColor = "green"
+      })
+      document.getElementById("pink").addEventListener('click', function(){
+
+        Body.style.backgroundColor = "pink"
+      })
+      document.getElementById("blue").addEventListener('click', function(){
+
+        Body.style.backgroundColor = "blue"
+      })
+      document.getElementById("yellow").addEventListener('click', function(){
+
+        Body.style.backgroundColor = "yellow"
+      })
+    </script>
+</body>
+</html>
+
+<!-- Very long code if no of buttons are many-->

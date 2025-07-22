@@ -1,0 +1,71 @@
+<!-- Change backgroundColor color when button clicked-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: grey;">
+    
+    <button id="red"> Red  </button>
+    <button id="green"> Green </button>
+    <button id="pink"> Pink </button>
+    <button id="blue"> Blue </button>
+    <button id="yellow"> Yellow </button>
+
+    <script> 
+
+    //  Not Work =>
+
+    //    const Body = document.querySelector("body")
+
+    //    function clickHandler(color){
+
+    //        Body.style.backgroundColor = `${color}`
+    //    }
+
+      
+    // document.getElementById("blue").addEventListener('click', clickHandler("blue"));
+    // document.getElementById("green").addEventListener('click', clickHandler("green"));
+    // document.getElementById("red").addEventListener('click', clickHandler("red"));
+    // document.getElementById("pink").addEventListener('click', clickHandler("pink"));
+    // document.getElementById("yellow").addEventListener('click', clickHandler("yellow"));
+      
+    // You're calling clickHandler("blue") immediately.
+    // So JavaScript runs clickHandler("blue") at the time of script execution, not when the button is clicked.
+    // the last one ("yellow") works — it overwrites all others by executing last.
+
+    // Works =>
+
+     const Body = document.querySelector("body")
+
+      function clickHandler(color){
+
+        return function(){
+            Body.style.backgroundColor = `${color}`
+        }
+
+      }
+
+      
+    document.getElementById("blue").addEventListener('click', clickHandler("blue"));
+    document.getElementById("green").addEventListener('click', clickHandler("green"));
+    document.getElementById("red").addEventListener('click', clickHandler("red"));
+    document.getElementById("pink").addEventListener('click', clickHandler("pink"));
+    document.getElementById("yellow").addEventListener('click', clickHandler("yellow"));
+      
+    // yaha pe bhi script load hote hi function call to hoga
+    // but function call turant kuch nahi karega
+    // vo sirf ek inner function return karega
+    // aur ye inner function 'addEventListener' me pass ho jayega
+    // isliye woh inner function turant execute nahi hota
+    // sirf register/store hota hai
+    // aur jab button pe click hota hai tab woh inner function chalta hai
+
+
+    </script>
+</body>
+</html>
+
