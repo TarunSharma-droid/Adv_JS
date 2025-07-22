@@ -31,7 +31,7 @@ class Admin{
     }
     
 
-// Method 2 => defining in get
+// Method 2 => defining in get => when we call this function we dont need to apply ()
     get giveUserId(){
             return `Your id is ${this.id}`
         }
@@ -41,7 +41,7 @@ const a1 = new Admin("Lokesh" , 321 , "ab506")
 
 console.log(a1.givePassword()) 
 
-console.log(a1.giveUserId)    // => when use second method then we not need ()
+console.log(a1.giveUserId)    
 
 //  It is just like we are accessing the property of an object and not calling an function.
 //  Behind the scenes, it's still a function, but it behaves like a property. 

@@ -15,7 +15,7 @@ console.log(user.greet()) // as the script run function is called and this refer
 
 const myFucntion = user.greet 
 // Here we are just passing the defination of the function(greet) to myFunction not calling it.
-// As we are not calling the funtion so "this" inside is not set and is undefined.
+// As we are not calling the funtion so "this" inside is not set (not refering to anything).
 
                               
 console.log(myFucntion())

@@ -22,11 +22,12 @@ setTimeout(student.work, 1000) // => correct syntax for setTimeout => still not 
 
 // Here, you're not calling student.work(), you're just giving setTimeout a After 1000ms,
 // JS calls that function like of the function.
-// After 1000ms, JS calls this copy of function in which "this" is undefined - and not calling 
+// After 1000ms, JS calls this copy of function in which "this" is not set yet - and not calling 
 // the actual function inside the object (it's a plain function call, not tied to any object )
 
-// Matlab aapne pehle setTimeout mai sirf definition di jisme "this" undefined hai, aur jab delay complete hua to
-// wahi definition run hui jisme "this" undefined tha — na ki setTimeout ne object ke function ko call kiya.
+// Matlab aapne pehle setTimeout mai sirf definition di jisme "this" kisi ko refer he nhi kr raha hai,
+// aur jab delay complete hua to wahi definition run hui jisme "this" set nhi tha — na ki setTimeout ne object 
+// actual ke function ko call kiya.
 
 
 // So have to use bind()

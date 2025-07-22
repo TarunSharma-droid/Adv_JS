@@ -30,15 +30,19 @@
     // means the function runs as soon as the script loads, NOT when the button is clicked.
  
     // 2 } 💠 button.addEventListener("click", app.showTitle)    => wrong syntax
+ 
+   // This is not working as expected because we are just passing the function definition.
+   // When we pass a function definition (like app.showTitle), `this` is not set at that moment.
+   // Later, when the button is clicked, here specially "this" does not remain not set.
+   // JavaScript set "this" to the <button> ..
+   // It is by default nature of JS that for DOM elements, JS sets the "this" to the element igniting it.
 
-    // only passing the defination of function and it will run when click happen .(to is se to shi result milna chiye ...kyo ki click 
-    // krne pr function run ho rha hai to this usi time apne andar "app" le lega ) But still not expected result.
+   // So inside showTitle, `this` refers to the button, and since the button has no `title` property,
+   // `this.title` becomes undefined.
 
-    // Expalantion of JS designing : => 
-    // Javascript is desined like : In JavaScript, when a normal function is used in event, the browser automatically sets "this" to the 
-    // DOM element that triggered the event.( here ,button) and not set to the object by which function belong.
+   // Chahe this set ho he na ya <button> ko refer kare dono he case mai kam nhi hoga
 
-    // Use bind to explicitly set "this" to "app" as to overwrite the browser act of setting "this" to "button".
+    // Use bind() to explicitly set "this" to "app" as to overwrite the browser act of setting "this" to "button".
 
     button.addEventListener("click", app.showTitle.bind(app))
  </script>

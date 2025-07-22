@@ -18,13 +18,13 @@ console.log(p.fullName);
 // Now when you do =>   p.firstName = "Rohit"
 
 // firstName is updated 
-// But fullName is not updated  — because it was set only once when the object is create and it 
+// But fullName is not updated  — because it was set when the object is create and it 
 // have the initial values of firstname and lastname and later we are just changing the value of
 // firstname which will not affect the values of full name.
 
 
 
-// 2 } To get changed fullname ( make it dynamic ) => use funtion which is set everytime it is called
+// 2 } To get changed fullname ( make it dynamic ) => use a funtion which is set everytime it is called
 
 class Admin {
   constructor(first, last) {
@@ -57,7 +57,7 @@ console.log(a.fullName()); //  Rohit Sharma => as second time function is called
 
 
 
-// 3 } To get changed fullname ( make it dynamic ) => can use "get" fucntion in place of simple function 
+// 3 }  can use "get" fucntion in place of simple function 
 
 class Manager {
   constructor(first, last) {
