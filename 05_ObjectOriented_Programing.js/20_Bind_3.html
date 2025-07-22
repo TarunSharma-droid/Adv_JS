@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button> Chick Here </button>
+</body>
+
+ <script>
+
+    const app = {
+
+    title: "SmartExit",
+    showTitle: function () {
+        console.log("App Title is: " + this.title);
+    }
+    };
+
+    // Simulating event listener
+    const button = document.querySelector("button")
+    
+    // 1 } 💠 button.addEventListener("click", app.showTitle())  => wrong syntax ( will not wait for button to get click)
+
+    // app.showTitle() has parentheses (), which means the function is called immediately, right when the browser executes that line.
+    // So the function runs as soon as the script loads, NOT when the button is clicked.
+ 
+    // 2 } 💠 button.addEventListener("click", app.showTitle)  => wrong syntax
+
+    // only passing the defination of function and it will run when click happen .(to is se to shi result milna chiye ...kyo ki click 
+    // krne pr function run ho rha hai to this usi time apne andar "app" le lega ) But still not expected result.
+
+    // Expalantion of JS designing : => 
+    // Javascript is desined like : In JavaScript, when a normal function is used in event, the browser automatically sets "this" to the 
+    // DOM element that triggered the event.( here ,button) and not set to the object by which function belong.
+
+    // Use bind to explicitly set "this" to "app" as to overwrite the browser act of setting "this" to "button".
+
+    button.addEventListener("click", app.showTitle.bind(app))
+ </script>
+</html>

@@ -1,0 +1,34 @@
+// REMEMBER =>
+//  We should never pass a function **call** to setTimeout directly,
+// because setTimeout is meant to **execute** a function after a delay.
+
+// For example,
+// If you pass a function call like => setTimeout(func(), 4000),
+// it means you're calling the function immediately as the script runs,
+// and passing its return value to setTimeout.
+
+const student = {
+  label: "Submit",
+  work: function () {
+    console.log(`Assignemt: ${this.label}`);
+  }
+};
+
+
+setTimeout(student.work, 1000) // => correct syntax for setTimeout => still not run
+
+// Here, you're not calling student.work(), you're just giving setTimeout a After 1000ms,
+// JS calls that function like of the function.
+// After 1000ms, JS calls this copy of function in which "this" is undefined - and not calling 
+// the actual function inside the object (it's a plain function call, not tied to any object )
+
+// Matlab aapne pehle setTimeout mai sirf definition di jisme "this" undefined hai, aur jab delay complete hua to
+// wahi definition run hui jisme "this" undefined tha — na ki setTimeout ne object ke function ko call kiya.
+
+
+// So have to use bind()
+setTimeout(student.work.bind(student), 1000);
+
+//  We pass the same function definition,
+//  BUT we explicitly bind `this` to `student`,
+//  So even when setTimeout runs it later, `this` will always refer to `student`.
