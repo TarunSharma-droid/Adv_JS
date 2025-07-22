@@ -1,6 +1,9 @@
 // REMEMBER =>
-//  We should never pass a function **call** to setTimeout directly,
-// because setTimeout is meant to **execute** a function after a delay.
+// If you call a function directly like this:  myFunction();
+// It will execute immediately — right when the JavaScript engine reaches that line during the script execution.
+
+// ASo that is why we should never pass a function call to setTimeout directly,
+// because setTimeout is meant to execute a function after a delay.
 
 // For example,
 // If you pass a function call like => setTimeout(func(), 4000),
