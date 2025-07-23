@@ -23,7 +23,7 @@ class Teacher extends User {  // inheritance is stablished in Teacher class form
 
     addCourse (){
         console.log(`${this.name_ofTeacher} is a good teacher`)
-    }
+    } 
 }
 
 const T1 = new Teacher("Tarun","tarun@.com",1234)
