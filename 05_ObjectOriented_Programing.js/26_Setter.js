@@ -55,7 +55,7 @@ console.log(a.fullName);
 
 a.fullName = "Raju Don"; // Method 2 is applicable here => internally, (the setter will split
                          // that full name and update firstName and lastName accordingly.)
-
+ 
 console.log(a.firstName);  
 console.log(a.lastName);   
 console.log(a.fullName);   
