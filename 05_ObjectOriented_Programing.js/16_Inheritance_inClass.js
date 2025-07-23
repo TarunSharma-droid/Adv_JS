@@ -19,7 +19,7 @@ class Teacher extends User {  // inheritance is stablished in Teacher class form
 
         this.mail_ofTeacher = email;
         this.password_ofTeacher = password;
-    }
+    } 
 
     addCourse (){
         console.log(`${this.name_ofTeacher} is a good teacher`)
