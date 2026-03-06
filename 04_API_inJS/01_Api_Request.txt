@@ -21,6 +21,19 @@ That’s exactly what an API does.
                                     Brings it back to your table and serves it —           waiter.responseText.
 🔹Response	            ==>   Waiter brings back your food
 
-So XMLHttpRequest/fetch is the tool(waiter) that takes your order (API Call) to the kitchen (server) and brings back the data (response) — without 
+1️⃣ Prepare the order
+Waiter writes down the order
+➡️ xhr.open() (API call preparation)
+
+2️⃣ Send the order to the kitchen
+➡️ xhr.send() (API request sent)
+
+3️⃣ Wait for the food to be prepared
+➡️ xhr.onload
+
+4️⃣ Bring the food back to the table
+➡️ xhr.responseText
+
+So XMLHttpRequest or fetch() is the tool(waiter) that takes your order (API Call) to the kitchen (server) and brings back the data (response) — without 
 making you move or refresh your table.
 --> 
