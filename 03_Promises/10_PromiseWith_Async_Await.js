@@ -19,12 +19,18 @@ let value = true
   async function consumeThePromise(){       
 
    try{
-     const result = await dothis   // if dothis get resolve state ==> then result will get some value from await dothis and console will get run.
-     console.log(result)           // otherwise if dothis get reject state ==> then result will not get any value and code directly moves to catch block.
-   }                               // and the value passed to reject() is caught in the catch block as a parameter (here data2).
+     const result = await dothis   
+     console.log(result)           
+   }                               
    catch(data2){
       console.log(data2)
    } 
    }
    consumeThePromise()                      
-
+ 
+//  1} if dothis get resolve state ==> then result will get some value from await dothis and console will get run.
+//  2} if dothis get reject state ==> then Try block start hota hai,
+//                                    but await error throw kar deta hai,
+//                                    control directly catch block me chala jata hai.
+//                                    So result variable kabhi assign hi nahi hota.
+//                                    and the value passed to reject() is caught in the catch block as a parameter (here data2).
